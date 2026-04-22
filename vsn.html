@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Nepal 2030 | National Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0b1220;
+  color: #e2e8f0;
+  scroll-behavior: smooth;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #1e3a8a, #020617);
+  text-align: center;
+}
+.hero h1 { font-size: 3em; margin: 0; }
+.hero button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #0ea5e9;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* SECTIONS */
+.section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 15px;
+}
+.card {
+  background: #334155;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* PROGRESS BARS */
+.bar {
+  height: 18px;
+  background: #38bdf8;
+  margin: 6px 0;
+  border-radius: 4px;
+}
+
+/* VOTE SYSTEM */
+.vote-box {
+  text-align: center;
+  padding: 20px;
+}
+.vote-btn {
+  padding: 10px 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.yes { background: #22c55e; color: white; }
+.no { background: #ef4444; color: white; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Digital Nepal 2030 🇳🇵</h1>
+  <p>National Transformation Portal</p>
+  <button onclick="document.getElementById('content').scrollIntoView()">Explore Proposal</button>
+</div>
+
+<div id="content">
+
+<!-- VISION -->
+<div class="section">
+<h2>🚀 National Vision</h2>
+<p>
+Transform Nepal into a global <b>Digital Export Economy</b> powered by AI, IT services,
+data infrastructure, and citizen-driven governance.
+</p>
+</div>
+
+<!-- PROPOSED BY -->
+<div class="section">
+<h2>✍️ Proposed By</h2>
+<div class="card">
+<b>Name:</b> Abhishek Dhakal<br>
+<b>Role:</b> IT & Technology Entrepreneur<br>
+<b>Organization:</b> VisionX Technologies Pvt. Ltd.<br>
+<b>Country:</b> Nepal 🇳🇵
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="section">
+<h2>📊 National KPI Dashboard</h2>
+
+<div class="grid">
+<div class="card">
+<h3>100 अरब+</h3>
+<p>Target Annual Revenue</p>
+</div>
+
+<div class="card">
+<h3>1M+</h3>
+<p>Digital Jobs Created</p>
+</div>
+
+<div class="card">
+<h3>5–7 Years</h3>
+<p>Execution Timeline</p>
+</div>
+
+<div class="card">
+<h3>Global Tier</h3>
+<p>Tech Economy Rank Goal</p>
+</div>
+</div>
+</div>
+
+<!-- EXECUTION -->
+<div class="section">
+<h2>🧩 Execution Pillars</h2>
+<div class="grid">
+<div class="card">Data Centers & AI Infrastructure</div>
+<div class="card">IT Export Economy</div>
+<div class="card">Digital ID & API System</div>
+<div class="card">Smart Tourism Platform</div>
+<div class="card">AI Nepal Program</div>
+</div>
+</div>
+
+<!-- PROGRESS SIMULATION -->
+<div class="section">
+<h2>📈 Execution Progress Model</h2>
+
+<p>Phase 1: Setup</p>
+<div class="bar" style="width:25%"></div>
+
+<p>Phase 2: Expansion</p>
+<div class="bar" style="width:65%"></div>
+
+<p>Phase 3: Global Scaling</p>
+<div class="bar" style="width:100%"></div>
+</div>
+
+<!-- REVENUE MODEL -->
+<div class="section">
+<h2>💰 Revenue Projection</h2>
+<div class="grid">
+<div class="card">Data Centers → 40 अरब</div>
+<div class="card">IT Export → 30 अरब</div>
+<div class="card">Digital APIs → 15 अरब</div>
+<div class="card">Tourism Tech → 15 अरब</div>
+</div>
+</div>
+
+<!-- CITIZEN VOTING -->
+<div class="section">
+<h2>🗳️ Citizen Support System (Demo)</h2>
+
+<div class="vote-box">
+<p>Do you support Digital Nepal 2030?</p>
+
+<button class="vote-btn yes" onclick="vote('yes')">YES</button>
+<button class="vote-btn no" onclick="vote('no')">NO</button>
+
+<p id="result"></p>
+</div>
+</div>
+
+<!-- REALITY -->
+<div class="section">
+<h2>⚠️ Ground Reality Statement</h2>
+<p>
+Nepal does not lack ideas or policies. It lacks structured execution,
+accountability, and revenue-driven planning. This proposal directly solves all three.
+</p>
+</div>
+
+</div>
+
+<footer>
+Digital Nepal 2030 | National Policy Portal | Proposed by Abhishek Dhakal
+</footer>
+
+<script>
+// simple vote system (local simulation)
+let yes = localStorage.getItem("yes") || 0;
+let no = localStorage.getItem("no") || 0;
+
+function vote(type){
+  if(type === "yes"){
+    yes++;
+    localStorage.setItem("yes", yes);
+  } else {
+    no++;
+    localStorage.setItem("no", no);
+  }
+
+  document.getElementById("result").innerHTML =
+  "Support: YES " + yes + " | NO " + no;
+}
+
+// show initial
+document.getElementById("result").innerHTML =
+"Support: YES " + yes + " | NO " + no;
+</script>
+
+</body>
+</html>
