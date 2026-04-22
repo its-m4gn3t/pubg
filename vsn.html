@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Digital Nepal 2030 - National Portal</title>
+<title>Digital Nepal 2030 - Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial;
@@ -21,34 +26,44 @@ nav {
   width: 100%;
   background: #020617;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   padding: 10px;
   z-index: 1000;
 }
+
 nav a {
   color: #38bdf8;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* SECTION */
 section {
   min-height: 100vh;
-  padding: 80px 20px 40px;
-  box-sizing: border-box;
+  padding: 90px 15px 40px;
 }
 
-/* HEADERS */
-h1,h2 {
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  background: radial-gradient(circle,#1e3a8a,#020617);
 }
 
-/* CARDS */
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
   max-width: 1100px;
   margin: auto;
 }
@@ -57,42 +72,56 @@ h1,h2 {
   background: #1e293b;
   padding: 15px;
   border-radius: 10px;
+  font-size: 14px;
 }
 
-/* HERO */
-.hero {
-  background: radial-gradient(circle,#1e3a8a,#020617);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* CHART */
-canvas {
-  background: #1e293b;
-  border-radius: 10px;
-  display: block;
-  margin: auto;
-}
-
-/* IMAGE BLOCK */
+/* IMAGE BOX */
 .imgbox {
-  height: 200px;
+  height: 180px;
   background: linear-gradient(135deg,#334155,#0f172a);
   border-radius: 10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
-  opacity:0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  padding: 10px;
+}
+
+/* CANVAS RESPONSIVE */
+canvas {
+  width: 100% !important;
+  max-width: 500px;
+  height: auto !important;
+  display: block;
+  margin: 20px auto;
+  background: #1e293b;
+  border-radius: 10px;
 }
 
 /* FOOTER */
 footer {
-  text-align:center;
-  padding:20px;
-  background:#020617;
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  font-size: 13px;
+}
+
+/* MOBILE TWEAKS */
+@media (max-width: 600px) {
+  nav {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .card {
+    font-size: 13px;
+  }
+
+  section {
+    padding-top: 110px;
+  }
 }
 </style>
 </head>
@@ -103,11 +132,11 @@ footer {
 <nav>
 <a href="#s1">Vision</a>
 <a href="#s2">Budget</a>
-<a href="#s3">Data Center</a>
-<a href="#s4">IT Export</a>
-<a href="#s5">API Economy</a>
+<a href="#s3">Data</a>
+<a href="#s4">IT</a>
+<a href="#s5">API</a>
 <a href="#s6">Tourism</a>
-<a href="#s7">AI Nepal</a>
+<a href="#s7">AI</a>
 <a href="#s8">NDA</a>
 <a href="#s9">Revenue</a>
 <a href="#s10">Impact</a>
@@ -116,162 +145,154 @@ footer {
 <!-- 1 -->
 <section id="s1" class="hero">
 <h1>Digital Nepal 2030 🇳🇵</h1>
-<p>National Digital Transformation + Execution Framework</p>
-
-<div class="imgbox">Government Policy Vision Dashboard</div>
+<p>National Execution + Digital Economy Transformation</p>
 </section>
 
 <!-- 2 -->
 <section id="s2">
-<h2>📊 Budget Reality</h2>
+<h2 style="text-align:center;">📊 Budget Reality</h2>
+
 <div class="grid">
-<div class="card">Total Budget: 1.96 Trillion</div>
-<div class="card">ICT: 7.72 Billion</div>
-<div class="card">Digital Programs: 740M</div>
-<div class="card">⚠️ Under 1% Allocation</div>
+<div class="card">Total Budget: 1.96T</div>
+<div class="card">ICT: 7.72B</div>
+<div class="card">Digital: 740M</div>
+<div class="card">⚠️ <1% Allocation</div>
 </div>
 
-<canvas id="c1" width="400" height="200"></canvas>
+<canvas id="c1"></canvas>
 </section>
 
 <!-- 3 -->
 <section id="s3">
-<h2>💻 Data Center Infrastructure</h2>
+<h2 style="text-align:center;">💻 Data Centers</h2>
+
 <div class="grid">
-<div class="card">Budget: 50 अरब</div>
-<div class="card">PPP + FDI Model</div>
-<div class="card">Cloud + AI Hosting</div>
-<div class="card">Export Data Economy</div>
+<div class="card">50 अरब Budget</div>
+<div class="card">PPP Model</div>
+<div class="card">AI Infrastructure</div>
+<div class="card">Export Cloud</div>
 </div>
 
-<div class="imgbox">AI Data Center Infrastructure Visualization</div>
+<div class="imgbox">National Data Center + AI Infrastructure Network</div>
 </section>
 
 <!-- 4 -->
 <section id="s4">
-<h2>🌐 IT Export Economy</h2>
+<h2 style="text-align:center;">🌐 IT Export Economy</h2>
+
 <div class="grid">
-<div class="card">Budget: 10 अरब</div>
-<div class="card">Freelance Ecosystem</div>
-<div class="card">Global SaaS Export</div>
-<div class="card">Skill Acceleration</div>
+<div class="card">Freelancing</div>
+<div class="card">SaaS Export</div>
+<div class="card">Skill Training</div>
+<div class="card">Global Contracts</div>
 </div>
 
-<canvas id="c2" width="400" height="200"></canvas>
+<canvas id="c2"></canvas>
 </section>
 
 <!-- 5 -->
 <section id="s5">
-<h2>🔗 Digital API Economy</h2>
+<h2 style="text-align:center;">🔗 API Economy</h2>
+
 <div class="grid">
-<div class="card">Government APIs</div>
-<div class="card">Digital ID System</div>
-<div class="card">Monetization Layer</div>
-<div class="card">Private Access Model</div>
+<div class="card">Digital ID</div>
+<div class="card">Gov APIs</div>
+<div class="card">Private Access</div>
+<div class="card">Monetization</div>
 </div>
 </section>
 
 <!-- 6 -->
 <section id="s6">
-<h2>🏔️ Smart Tourism</h2>
+<h2 style="text-align:center;">🏔️ Tourism Tech</h2>
+
 <div class="grid">
 <div class="card">Smart Permits</div>
-<div class="card">Digital Booking System</div>
-<div class="card">AI Tourism Guide</div>
-<div class="card">Global Marketing</div>
+<div class="card">AI Guide</div>
+<div class="card">Digital Booking</div>
+<div class="card">Global Reach</div>
 </div>
 
-<div class="imgbox">Smart Tourism Digital Map System</div>
+<div class="imgbox">Smart Tourism Digital Ecosystem</div>
 </section>
 
 <!-- 7 -->
 <section id="s7">
-<h2>🧠 AI Nepal Program</h2>
+<h2 style="text-align:center;">🧠 AI Nepal</h2>
+
 <div class="grid">
 <div class="card">Nepali AI Models</div>
 <div class="card">Education AI</div>
 <div class="card">Health AI</div>
-<div class="card">Agriculture AI</div>
+<div class="card">Agri AI</div>
 </div>
 
-<canvas id="c3" width="400" height="200"></canvas>
+<canvas id="c3"></canvas>
 </section>
 
 <!-- 8 -->
 <section id="s8">
-<h2>🏛️ National Digital Authority</h2>
+<h2 style="text-align:center;">🏛️ NDA Authority</h2>
+
 <div class="grid">
 <div class="card">Independent Body</div>
 <div class="card">PM Reporting</div>
-<div class="card">Real-time Monitoring</div>
-<div class="card">Execution Control</div>
+<div class="card">Real-time Control</div>
+<div class="card">Execution System</div>
 </div>
 </section>
 
 <!-- 9 -->
 <section id="s9">
-<h2>📈 Revenue Growth Model</h2>
+<h2 style="text-align:center;">📈 Revenue Model</h2>
 
-<canvas id="c4" width="400" height="200"></canvas>
+<canvas id="c4"></canvas>
+
 <p style="text-align:center;">Target: 100 अरब+ Annual Revenue</p>
 </section>
 
 <!-- 10 -->
 <section id="s10">
-<h2>📊 Final National Impact</h2>
+<h2 style="text-align:center;">📊 National Impact</h2>
+
 <div class="grid">
-<div class="card">1M+ Jobs</div>
+<div class="card">1M Jobs</div>
 <div class="card">Global IT Hub</div>
 <div class="card">AI Governance</div>
 <div class="card">Export Economy</div>
 </div>
 
-<h3 style="text-align:center;">⚠️ Ground Reality</h3>
 <p style="text-align:center;">
-Nepal does not lack ideas. It lacks execution, accountability, and structured planning.
-</p>
-
-<h3 style="text-align:center;">✍️ Proposed By</h3>
-<p style="text-align:center;">
-Abhishek Dhakal<br>
-VisionX Technologies Pvt. Ltd.
+⚠️ Nepal’s problem is not ideas — it is execution.
 </p>
 </section>
 
 <footer>
-Digital Nepal 2030 | National Execution Portal
+Digital Nepal 2030 | Fully Responsive Government Portal
 </footer>
 
 <script>
-// SIMPLE CANVAS CHARTS (NO LIBRARY)
+function draw(id, color, values){
+  let c = document.getElementById(id).getContext("2d");
 
-// Budget chart
-let c1 = document.getElementById("c1").getContext("2d");
-c1.fillStyle="#38bdf8";
-c1.fillRect(50,100,50,80);
-c1.fillRect(150,100,50,30);
-c1.fillRect(250,100,50,10);
+  let w = c.canvas.width = c.canvas.clientWidth;
+  let h = c.canvas.height = 200;
 
-// IT export
-let c2 = document.getElementById("c2").getContext("2d");
-c2.fillStyle="#22c55e";
-c2.fillRect(50,100,50,40);
-c2.fillRect(150,100,50,70);
-c2.fillRect(250,100,50,100);
+  let max = Math.max(...values);
+  let barW = w / values.length;
 
-// AI
-let c3 = document.getElementById("c3").getContext("2d");
-c3.fillStyle="#a855f7";
-c3.fillRect(50,100,50,20);
-c3.fillRect(150,100,50,60);
-c3.fillRect(250,100,50,90);
+  values.forEach((v,i)=>{
+    let height = (v/max) * 180;
+    c.fillStyle = color;
+    c.fillRect(i*barW+10, 190-height, barW-20, height);
+  });
+}
 
-// Revenue
-let c4 = document.getElementById("c4").getContext("2d");
-c4.fillStyle="#f59e0b";
-c4.fillRect(50,100,50,30);
-c4.fillRect(150,100,50,70);
-c4.fillRect(250,100,50,110);
+// charts
+draw("c1","#38bdf8",[30,70,100]);
+draw("c2","#22c55e",[40,60,90]);
+draw("c3","#a855f7",[20,60,100]);
+draw("c4","#f59e0b",[20,50,100]);
 </script>
 
 </body>
